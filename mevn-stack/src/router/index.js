@@ -13,6 +13,31 @@ const routes = [
     component: Home
   },
   {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/tasks',
+    name: 'tasks-all',
+    component: TasksAll
+  },
+  {
+    path: '/tasks/new',
+    name: 'tasks-new',
+    component: TasksCreate
+  },
+  {
+    path: '/tasks/edit',
+    name: 'tasks-edit',
+    component: TasksEdit
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
