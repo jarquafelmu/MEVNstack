@@ -7,7 +7,7 @@
 }
 
 * {
-  color: white !important;
+  color: white;
 }
 
 .custom-bg-dark {
@@ -76,6 +76,7 @@ div#custom-home {
 
 .btn-success {
   background-color: var(--success) !important;
+  color: white !important;
 }
 
 .btn-success:hover {
