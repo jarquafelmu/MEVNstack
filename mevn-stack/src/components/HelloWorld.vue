@@ -7,9 +7,9 @@
     </p>
     <hr class="my-y" />
     <p>Click below to being managing tasks for users</p>
-    <router-link class="btn btn-success btn-lg" to="/tasks"
-      >View Tasks</router-link
-    >
+    <router-link class="btn btn-success btn-lg" to="/tasks">
+      View Tasks
+    </router-link>
   </div>
 </template>
 
