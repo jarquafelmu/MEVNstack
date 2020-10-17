@@ -3,7 +3,7 @@
     <h1 class="display-4">MEVN Stack Task Manager</h1>
     <p class="lead">
       This is a sample task manager application, built with MongoDB, ExpressJS,
-      VueJS, and NodeJS technolongy
+      VueJS, and NodeJS technologies.
     </p>
     <hr class="my-y" />
     <p>Click below to being managing tasks for users</p>
