@@ -1,0 +1,8 @@
+<template>
+  <h1>Register Route</h1>
+</template>
+<script>
+export default {
+  name: "Register",
+};
+</script>
