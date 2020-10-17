@@ -2,14 +2,14 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <router-link class="navbar-brand" to="/">
           <img
             alt="Vue logo"
             src="../assets/logo.png"
             style="max-height: 25px"
           />
-          Task Manager
-        </a>
+          Task Manager</router-link
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -24,16 +24,18 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav ml-auto mb-2 mb-md-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <router-link class="nav-link" to="/">Home</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tasks</a>
+              <router-link class="nav-link" to="/tasks">Tasks</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <router-link class="nav-link" to="/register">
+                Register
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <router-link class="nav-link" to="/login">Login</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Logout</a>
