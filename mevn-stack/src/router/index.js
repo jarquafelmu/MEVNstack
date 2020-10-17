@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/authentication/Login.vue'
+import Register from '../views/authentication/Register.vue'
+import TasksAll from '../views/tasks/TasksAll.vue'
+import TasksCreate from '../views/tasks/TasksCreate.vue'
+import TasksEdit from '../views/tasks/TasksEdit.vue'
 
 const routes = [
   {
