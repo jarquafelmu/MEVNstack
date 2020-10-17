@@ -6,6 +6,8 @@ import TasksAll from '../views/tasks/TasksAll.vue'
 import TasksCreate from '../views/tasks/TasksCreate.vue'
 import TasksEdit from '../views/tasks/TasksEdit.vue'
 
+const isLoggedIn = false;
+
 const routes = [
   {
     path: '/',
@@ -15,27 +17,62 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    beforeEnter: (toolbar, from, next) => {
+      if (!isLoggedIn) {
+        next();
+      } else {
+        next(`/`)
+      }
+    }
   },
   {
     path: '/register',
     name: 'register',
-    component: Register
+    component: Register,
+    beforeEnter: (toolbar, from, next) => {
+      if (!isLoggedIn) {
+        next();
+      } else {
+        next(`/`)
+      }
+    }
   },
   {
     path: '/tasks',
     name: 'tasks-all',
-    component: TasksAll
+    component: TasksAll,
+    beforeEnter: (toolbar, from, next) => {
+      if (isLoggedIn) {
+        next();
+      } else {
+        next(`/login`)
+      }
+    }
   },
   {
     path: '/tasks/new',
     name: 'tasks-create',
-    component: TasksCreate
+    component: TasksCreate,
+    beforeEnter: (toolbar, from, next) => {
+      if (isLoggedIn) {
+        next();
+      } else {
+        next(`/login`)
+      }
+    }
   },
   {
     path: '/tasks/edit',
     name: 'tasks-edit',
-    component: TasksEdit
+    component: TasksEdit,
+    beforeEnter: (toolbar, from, next) => {
+      if (isLoggedIn) {
+        next();
+      } else {
+        next(`/login`)
+      }
+    }
   },
   {
     path: '/about',
@@ -52,5 +89,6 @@ const router = createRouter({
   routes,
   linkActiveClass: 'active'
 })
+
 
 export default router
