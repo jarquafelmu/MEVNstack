@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "babel dev-server --out-dir prod-server && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev": "babel dev-server --out-dir prod-server --watch"
   },
   "dependencies": {
     "bootstrap": "^5.0.0-alpha2",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "vue": "^3.0.0",
@@ -23,7 +25,10 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^5.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0"
   },
