@@ -4,7 +4,6 @@ import store from '../store'
 export function isLoggedIn() {
   const token = localStorage.getItem(`token`)
   return !!token; // does token exist?
-  // return token !== null; // does token exist?
 }
 
 export function login() {
