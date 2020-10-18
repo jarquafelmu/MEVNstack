@@ -12,20 +12,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var router = _express2.default.Router();
 
-router.post('/task', function (req, res) {
-  res.send('post.task - create a task');
-});
-router.get('/task', function (req, res) {
-  res.send('get.task - get all tasks');
-});
-router.get('/task/:id', function (req, res) {
-  res.send('get.task - get task by id');
-});
-router.put('/task', function (req, res) {
-  res.send('put.task - update a task');
-});
-router.delete('/task', function (req, res) {
-  res.send('delete.task - delete a task');
+router.get('/user', function (req, res) {
+  res.send('get.user - get all users');
 });
 
 exports.default = router;
