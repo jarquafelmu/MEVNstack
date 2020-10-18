@@ -1,28 +1,29 @@
 import store from '../store'
 
 
-function isLoggedIn() {
+export function isLoggedIn() {
   const token = localStorage.getItem(`token`)
   return !!token; // does token exist?
+  // return token !== null; // does token exist?
 }
 
-function login() {
+export function login() {
   const token = {
     username: 'Sam'
   }
   setToken(token)
 }
 
-function setToken(token) {
+export function setToken(token) {
   localStorage.setItem(`token`, JSON.stringify(token));
-  store.dispatch(`authentication`);
+  store.dispatch(`authenticate`);
 }
 
-function getUsername() {
+export function getUsername() {
   return 'Sam'
 }
 
-function getUserId() {
+export function getUserId() {
   return 1;
 }
 

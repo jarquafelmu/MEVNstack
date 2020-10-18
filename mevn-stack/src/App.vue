@@ -16,5 +16,8 @@ export default {
     Navbar,
     Footer,
   },
+  beforeCreate: function () {
+    this.$store.dispatch(`authenticate`);
+  },
 };
 </script>

@@ -21,8 +21,8 @@ export default createStore({
     }
   },
   actions: {
-    authenticate(context) {
-      context.commit(`authenticate`)
+    authenticate({ commit }) {
+      commit(`authenticate`)
     }
   },
   modules: {

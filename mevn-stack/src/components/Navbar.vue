@@ -41,7 +41,9 @@
               <a class="nav-link" href="#">Logout</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sam</a>
+              <a class="nav-link" href="#">
+                {{ username }}
+              </a>
             </li>
           </ul>
         </div>
@@ -52,5 +54,10 @@
 <script>
 export default {
   name: `Navbar`,
+  computed: {
+    username() {
+      return this.$store.state.username ? this.$store.state.username : "User";
+    },
+  },
 };
 </script>

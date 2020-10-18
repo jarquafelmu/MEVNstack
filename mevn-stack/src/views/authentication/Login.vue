@@ -27,13 +27,13 @@
   </div>
 </template>
 <script>
-import * as auth from "../../services/AuthServices";
+import { login } from "../../services/AuthServices";
 export default {
   name: "Login",
   methods: {
     onSubmit: function (event) {
       event.preventDefault();
-      auth.login();
+      login();
       this.$router.push({ name: `home` });
     },
   },

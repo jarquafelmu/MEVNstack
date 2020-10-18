@@ -5,13 +5,12 @@ import Register from '../views/authentication/Register.vue'
 import TasksAll from '../views/tasks/TasksAll.vue'
 import TasksCreate from '../views/tasks/TasksCreate.vue'
 import TasksEdit from '../views/tasks/TasksEdit.vue'
-
-const isLoggedIn = false;
+import { isLoggedIn } from '../services/AuthServices'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
@@ -19,7 +18,7 @@ const routes = [
     name: 'login',
     component: Login,
     beforeEnter: (to, from, next) => {
-      if (!isLoggedIn) {
+      if (!isLoggedIn()) {
         next();
       } else {
         next(`/`)
@@ -31,7 +30,7 @@ const routes = [
     name: 'register',
     component: Register,
     beforeEnter: (to, from, next) => {
-      if (!isLoggedIn) {
+      if (!isLoggedIn()) {
         next();
       } else {
         next(`/`)
@@ -43,7 +42,7 @@ const routes = [
     name: 'tasks-all',
     component: TasksAll,
     beforeEnter: (to, from, next) => {
-      if (isLoggedIn) {
+      if (isLoggedIn()) {
         next();
       } else {
         next(`/login`)
@@ -55,7 +54,7 @@ const routes = [
     name: 'tasks-create',
     component: TasksCreate,
     beforeEnter: (to, from, next) => {
-      if (isLoggedIn) {
+      if (isLoggedIn()) {
         next();
       } else {
         next(`/login`)
@@ -67,7 +66,7 @@ const routes = [
     name: 'tasks-edit',
     component: TasksEdit,
     beforeEnter: (to, from, next) => {
-      if (isLoggedIn) {
+      if (isLoggedIn()) {
         next();
       } else {
         next(`/login`)
@@ -81,7 +80,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
+  }
 ]
 
 const router = createRouter({
