@@ -5,15 +5,16 @@ export function index(req, res) {
   return res.json();
 }
 export function create(req, res) {
-  // FIND ALL TASKS
+  // CREATE TASK
   return res.json();
 }
 
 export function update(req, res) {
-  // FIND ALL TASKS
+  // UPDATE TASK
   return res.json();
 }
+
 export function remove(req, res) {
-  // FIND ALL TASKS
+  // DELETE TASK
   return res.json();
 }

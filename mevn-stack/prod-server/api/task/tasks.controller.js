@@ -15,15 +15,16 @@ function index(req, res) {
   return res.json();
 }
 function create(req, res) {
-  // FIND ALL TASKS
+  // CREATE TASK
   return res.json();
 }
 
 function update(req, res) {
-  // FIND ALL TASKS
+  // UPDATE TASK
   return res.json();
 }
+
 function remove(req, res) {
-  // FIND ALL TASKS
+  // DELETE TASK
   return res.json();
 }
