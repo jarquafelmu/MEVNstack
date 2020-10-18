@@ -1,8 +1,7 @@
 import express from 'express';
 const router = express.Router();
+import * as controller from './registrer.controller'
 
-router.post(`/register`, (req, res) => {
-  res.send(`post.task - register a user`)
-});
+router.post(`/register`, controller.index);
 
 export default router;
