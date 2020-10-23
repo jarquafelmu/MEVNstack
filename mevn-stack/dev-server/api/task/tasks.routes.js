@@ -1,21 +1,11 @@
 import express from 'express';
 const router = express.Router();
-// import * as controller from './tasks.controller'
+import * as controller from './tasks.controller'
 
-router.post(`/task`, (req, res) => {
-  res.send(`post.task - create a task`)
-});
-router.get(`/task`, (req, res) => {
-  res.send(`get.task - get all tasks`)
-});
-router.get(`/task/:id`, (req, res) => {
-  res.send(`get.task - get task by id`)
-});
-router.put(`/task`, (req, res) => {
-  res.send(`put.task - update a task`)
-});
-router.delete(`/task`, (req, res) => {
-  res.send(`delete.task - delete a task`)
-});
+router.post(`/task`, constroller.create);
+router.get(`/task`, constroller.index);
+router.get(`/task/:id`, constroller.show);
+router.put(`/task`, constroller.update);
+router.delete(`/task`, constroller.remove);
 
 export default router;

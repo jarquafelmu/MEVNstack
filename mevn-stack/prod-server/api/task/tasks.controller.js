@@ -7,6 +7,7 @@ exports.index = index;
 exports.create = create;
 exports.update = update;
 exports.remove = remove;
+exports.show = show;
 
 var _stringUtil = require('../../utilities/string-util');
 
@@ -26,5 +27,10 @@ function update(req, res) {
 
 function remove(req, res) {
   // DELETE TASK
+  return res.json();
+}
+
+function show(req, res) {
+  // GET TASK BY ID
   return res.json();
 }

@@ -24,5 +24,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, function () {
-  console.log('MEVN app listening at http://localhost:' + port + (process.env.NODE_ENV ? 'in ' + process.env.NODE_ENV : '') + '}');
+  console.log('MEVN app listening at http://localhost:' + port + (process.env.NODE_ENV ? ' in ' + process.env.NODE_ENV : '') + '}');
 });

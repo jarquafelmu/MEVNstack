@@ -18,3 +18,8 @@ export function remove(req, res) {
   // DELETE TASK
   return res.json();
 }
+
+export function show(req, res) {
+  // GET TASK BY ID
+  return res.json();
+}
