@@ -42,7 +42,7 @@ function validateIndex(body) {
   }
 
   return {
-    isValid: StringUtil.isValid(errors),
-    message: errors
+    isValid: StringUtil.isEmpty(errors),
+    message: errors.trim()
   }
 }
