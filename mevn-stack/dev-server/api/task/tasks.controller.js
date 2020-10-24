@@ -1,4 +1,7 @@
-import { StringUtil } from '../../utilities/string-util'
+import { StringUtil } from '../../utilities/string-util';
+import User from '../../model/user-model';
+import Task from '../../model/task-model';
+import moment from 'moment';
 
 export function index(req, res) {
   // FIND ALL TASKS
@@ -6,7 +9,22 @@ export function index(req, res) {
 }
 export function create(req, res) {
   // CREATE TASK
-  return res.status(201).json();
+  const id = 10;
+  User.findOne({ _id: id }, (error, user) => {
+    if (error && !user) {
+      return res.status(500).json()
+    }
+    const task = new Task(req.body.task);
+    task.author = user._id;
+    task.dueDate = moment(task.dueDate);
+
+    task.save(error => {
+      if (error) {
+        return res.status(500).json();
+      }
+      return res.status(201).json();
+    })
+  })
 }
 
 export function update(req, res) {
