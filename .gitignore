@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# production server
+prod-server/
+mevn-stack/prod-server/
+mevn-stack/prod-server/index.js
+mevn-stack/prod-server/config/env.js
