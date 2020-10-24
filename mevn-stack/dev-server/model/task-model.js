@@ -1,5 +1,5 @@
-import mongoose, { Mongoose } from 'mongoose'
-const taskSchema = new Mongoose.Schema({
+import mongoose from 'mongoose'
+const taskSchema = new mongoose.Schema({
   title: String,
   body: String,
   dueDate: { type: Date, default: Date.now },
