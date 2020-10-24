@@ -59,7 +59,21 @@ export function update(req, res) {
 
 export function remove(req, res) {
   // DELETE TASK
-  return res.status(204).json();
+  const id = 10; // temporary fake id for testing
+
+  Task.findOne({ _id: req.params.id }, (error, task) => {
+    if (error)
+      return res.status(500).json();
+    if (!task)
+      return res.status(404).json();
+    if (task.author._id.toString() !== id)
+      return res.status(403).json({ message: `Not allowed to delete another user's post.` });
+    Task.deleteOne({ _id: req.params.id }, (error) => {
+      if (error)
+        return res.status(500).json();
+      return res.status(204).json();
+    })
+  })
 }
 
 export function show(req, res) {
