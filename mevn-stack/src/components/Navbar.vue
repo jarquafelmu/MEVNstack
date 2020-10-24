@@ -26,19 +26,19 @@
             <li class="nav-item active">
               <router-link class="nav-link" to="/">Home</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="$store.state.isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/tasks">Tasks</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="!$store.state.isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/register">
                 Register
               </router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="!$store.state.isLoggedIn" class="nav-item">
               <router-link class="nav-link" to="/login">Login</router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+            <li v-if="$store.state.isLoggedIn" class="nav-item">
+              <a @click="logout()" class="nav-link" href="#">Logout</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
@@ -52,11 +52,19 @@
   </header>
 </template>
 <script>
+import * as auth from "../services/AuthServices";
+
 export default {
   name: `Navbar`,
   computed: {
     username() {
       return this.$store.state.username ? this.$store.state.username : "User";
+    },
+  },
+  methods: {
+    logout: function () {
+      auth.logout();
+      this.$router.push({ name: "home" });
     },
   },
 };

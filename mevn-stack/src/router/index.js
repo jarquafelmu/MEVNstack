@@ -6,7 +6,6 @@ import TasksAll from '../views/tasks/TasksAll.vue'
 import TasksCreate from '../views/tasks/TasksCreate.vue'
 import TasksEdit from '../views/tasks/TasksEdit.vue'
 import { isLoggedIn } from '../services/AuthServices'
-
 const routes = [
   {
     path: '/',
