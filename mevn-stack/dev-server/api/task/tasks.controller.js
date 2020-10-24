@@ -9,6 +9,7 @@ export function index(req, res) {
     if (error) {
       return res.status(500).json();
     }
+    // tasks were found
     return res.status(200).json({ tasks: tasks });
   }).populate('author', 'username', 'user')
 }
@@ -29,6 +30,7 @@ export function create(req, res) {
       if (error) {
         return res.status(500).json();
       }
+      // task was created
       return res.status(201).json();
     })
   })
@@ -52,6 +54,7 @@ export function update(req, res) {
       if (!task)
         return res.status(404).json();
 
+      // task was found and updated
       return res.status(204).json();
     })
   })
@@ -71,6 +74,8 @@ export function remove(req, res) {
     Task.deleteOne({ _id: req.params.id }, (error) => {
       if (error)
         return res.status(500).json();
+
+      // task was deleted
       return res.status(204).json();
     })
   })
@@ -83,6 +88,8 @@ export function show(req, res) {
       return res.status(500).json();
     if (!task)
       return res.status(404).json();
+
+    // found task to show
     return res.status(200).json({ task: task });
   })
 }
