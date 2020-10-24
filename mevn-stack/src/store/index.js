@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import * as auth from '../services/AuthServices'
+import * as auth from '../services/AuthService'
 
 export default createStore({
   state: {
