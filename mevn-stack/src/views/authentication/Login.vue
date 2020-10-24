@@ -44,7 +44,7 @@ export default {
         username: this.username,
         password: this.password,
       };
-      console.log("user", user);
+
       try {
         await auth.login(user);
         this.$router.push({ name: `home` });
