@@ -28,6 +28,12 @@ function validateIndex(body) {
   if (StringUtil.isEmpty(body.password)) {
     errors += `Password is required. `
   }
+  if (StringUtil.isEmpty(body.first)) {
+    errors += `First name is required. `
+  }
+  if (StringUtil.isEmpty(body.last)) {
+    errors += `Last name is required. `
+  }
 
   return {
     isValid: StringUtil.isEmpty(errors),
