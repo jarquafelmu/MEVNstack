@@ -52,7 +52,7 @@
   </header>
 </template>
 <script>
-import * as auth from "../services/AuthServices";
+import * as auth from "../services/AuthService";
 
 export default {
   name: `Navbar`,
