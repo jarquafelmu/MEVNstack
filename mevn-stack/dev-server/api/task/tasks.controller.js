@@ -5,7 +5,12 @@ import moment from 'moment';
 
 export function index(req, res) {
   // FIND ALL TASKS
-  return res.status(200).json();
+  Task.find({}, (error, tasks) => {
+    if (error) {
+      return res.status(500).json();
+    }
+    return res.status(200).json({ tasks: tasks });
+  }).populate('author', 'username', 'user')
 }
 export function create(req, res) {
   // CREATE TASK
@@ -39,5 +44,11 @@ export function remove(req, res) {
 
 export function show(req, res) {
   // GET TASK BY ID
-  return res.status(200).json();
+  Task.findOne({ _id: req.params.id }, (error, task) => {
+    if (error)
+      return res.status(500).json();
+    if (!task)
+      return res.status(404).json();
+    return res.status(200).json({ task: task });
+  })
 }
