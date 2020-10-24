@@ -4,7 +4,7 @@ import * as auth from '../services/AuthServices'
 export default createStore({
   state: {
     isLoggedIn: false,
-    apiUrl: `http://localhost:3000`,
+    apiUrl: `http://localhost:3000/api`,
     username: null,
     userId: null
   },

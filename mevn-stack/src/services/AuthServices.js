@@ -1,4 +1,5 @@
 import store from '../store'
+import { http } from './HttpService'
 
 
 export function isLoggedIn() {
@@ -6,11 +7,16 @@ export function isLoggedIn() {
   return !!token; // does token exist?
 }
 
-export function login() {
-  const token = {
-    username: 'Sam'
-  }
-  setToken(token)
+export function login(user) {
+  return http().post('/auth', user)
+    .then(res => {
+      if (res) {
+        const fakeToken = {
+          token: 'my-token'
+        }
+        setToken(fakeToken)
+      }
+    })
 }
 
 export function setToken(token) {
@@ -26,10 +32,6 @@ export function getUserId() {
   return 1;
 }
 
-export default {
-  isLoggedIn,
-  login,
-  setToken,
-  getUsername,
-  getUserId
+export function registerUser(user) {
+  return http().post(`/register`, user);
 }

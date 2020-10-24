@@ -8,11 +8,10 @@ export function index(req, res) {
   User.findOne({ username: req.body.username.toLowerCase() }, (error, user) => {
     if (error)
       return res.status(500).json();
-    if (!user)
-      return res.status(401).json();
-    const passwordMatch = true;
+    if (!user) { console.error(`user not found`); return res.status(401).json({ message: "user not found" }); }
+    const passwordMatch = User.passwordMatches(req.body.password, user.password);
     if (!passwordMatch)
-      return res.status(401).json();
+      return res.status(401).json({ message: "password not valid" });
 
     // user authenticated
     return res.status(200).json();
@@ -27,12 +26,6 @@ function validateIndex(body) {
   }
   if (StringUtil.isEmpty(body.password)) {
     errors += `Password is required. `
-  }
-  if (StringUtil.isEmpty(body.first)) {
-    errors += `First name is required. `
-  }
-  if (StringUtil.isEmpty(body.last)) {
-    errors += `Last name is required. `
   }
 
   return {
