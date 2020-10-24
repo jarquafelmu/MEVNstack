@@ -22,6 +22,6 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
   console.log(
-    `MEVN app listening at http://localhost:${port}${(process.env.NODE_ENV) ? ` in ${process.env.NODE_ENV}` : ''}}`
+    `MEVN app listening at http://localhost:${port}${(process.env.NODE_ENV) ? ` in ${process.env.NODE_ENV}` : ''}`
   )
 })
