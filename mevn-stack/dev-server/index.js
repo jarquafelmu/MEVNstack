@@ -4,11 +4,13 @@ const app = express()
 const port = 3000
 import { registerRoutes } from './routes'
 import { setEnvironment } from './config/env'
+import { connectToDB } from './config/db'
 
 if (process.env.NODE_ENV)
   process.env.NODE_ENV = process.env.NODE_ENV.trim()
 
 setEnvironment(app);
+connectToDB();
 registerRoutes(app);
 
 app.get('/', (req, res) => {
