@@ -2,6 +2,7 @@ import { StringUtil } from '../../utilities/string-util';
 import User from '../../model/user-model';
 import Task from '../../model/task-model';
 import moment from 'moment';
+import * as auth from '../../services / auth-service'
 
 export function index(req, res) {
   // FIND ALL TASKS
@@ -15,7 +16,7 @@ export function index(req, res) {
 }
 export function create(req, res) {
   // CREATE TASK
-  const id = 10;  // temporary fake id for testing
+  const id = auth.getUserId(req);
   User.findOne({ _id: id }, (error, user) => {
     if (error)
       return res.status(500).json();
@@ -38,14 +39,14 @@ export function create(req, res) {
 
 export function update(req, res) {
   // UPDATE TASK
-  const id = 10; // temporary fake id for testing
+  const id = auth.getUserId(req);
   User.findOne({ _id: id }, (error, user) => {
     if (error)
       return res.status(500).json();
     if (!user)
       return res.status(404).json();
 
-    const task = req.body.task;
+    const task = new Task(req.body.task);
     task.author = user._id;
     task.dueDate = moment(task.dueDate);
     Task.findByIdAndUpdate({ _id: task._id }, (error, task) => {
