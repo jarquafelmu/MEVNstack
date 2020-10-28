@@ -1,8 +1,7 @@
-import { StringUtil } from '../../utilities/string-util';
 import User from '../../model/user-model';
 import Task from '../../model/task-model';
 import moment from 'moment';
-import * as auth from '../../services / auth-service'
+import * as auth from '../../services/auth-service'
 
 export function index(req, res) {
   // FIND ALL TASKS
@@ -14,16 +13,18 @@ export function index(req, res) {
     return res.status(200).json({ tasks: tasks });
   }).populate('author', 'username', 'user')
 }
+
 export function create(req, res) {
   // CREATE TASK
   const id = auth.getUserId(req);
   User.findOne({ _id: id }, (error, user) => {
-    if (error)
+    if (error && !user)
       return res.status(500).json();
-    if (!user)
-      return res.status(404).json();
 
-    const task = new Task(req.body.task);
+    // const task = new Task(req.body.task);
+    const task = new Task(req.body.task)
+    console.log(req.body.task)
+    console.log(task)
     task.author = user._id;
     task.dueDate = moment(task.dueDate);
 
@@ -32,6 +33,7 @@ export function create(req, res) {
         return res.status(500).json();
       }
       // task was created
+      console.log("task saved")
       return res.status(201).json();
     })
   })

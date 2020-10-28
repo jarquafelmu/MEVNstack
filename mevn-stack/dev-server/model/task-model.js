@@ -6,6 +6,11 @@ const taskSchema = new mongoose.Schema({
   completed: { type: Boolean, default: false },
   author: { type: mongoose.Schema.Types.ObjectId, ref: `user` }
 });
-taskSchema.set(`timestamps`, true)
+// taskSchema.set(`timestamps`, true)
+// taskSchema.pre('save', function (next) {
+//   this.title = this.task.title;
+//   this.body = this.task.body;
+//   next();
+// })
 
 export default mongoose.model('task', taskSchema);
