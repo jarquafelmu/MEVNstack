@@ -128,7 +128,7 @@ export default {
     };
   },
   mounted() {
-    // BUG: When modal appears it's below the overlay and is not iteractable
+    // BUG: When modal appears it's below the overlay and is not interactable
     this.modal = new Modal(this.$refs.modal);
   },
   beforeRouteEnter(to, from, next) {
